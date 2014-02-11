@@ -20,6 +20,35 @@ Distributed Big-Data (Data-Mining) computing is so growing that it can be said i
 
 We therefore imagine a world with no hosting companies. Only distributed autonomous corporations (DACs, as by Invictus Innovations) will instantly serve every company, researcher and so on.
 
+Terminology
+---
+ 
+* A `Node` is any computational platform that may perform tasks such as computing, storing data, collecting or sending data from/to the internet, and so on.
+* A `Coordinator` is an entity that pays the network in HadoopCoins for its computational tasks, and manages the work using its Hadoop servers.
+
+First Application: Crypto Mining Pool
+---
+
+It is planned to launch, together with the HadoopCoin system, another system which will be the fist Coordinator on the system.
+Our coordinator will just be a big P2Pool-like pool for suitanle coins. Some devices will employ CPU mining, some GPU. This will give the initial worth of an HadoopCoin as how much you can earn from your hardware by mining. Later on, when other purposes Coordinators will be developed by various entities, they will have to offer a price that will beat the price of mining.
+On this mining coordinator, people will mine various currencies, those mined currencies will be the coordinator's property, and the coordinator will pay the workers with HadoopCoins. Note that it is very easy to transfer the HadoopCoins to other cryptocurrencies: one just hires mining work with their HadoopCoins. The pool coordinator's software will be open source hence being used by the public as an always-exists possibility to transfer HadoopCoins to other cryptos and vice versa.
+Note that with the above approach, the minimum market cap of HadoopCoin is known from day 1.
+
+Fair Distribution
+---
+
+Not all computational devices can perform many floating points operations per second, which makes only specific hardware suitable for legacy cryptocurrency mining. HadoopCoin is designed to use all various system resources and not only number crunching, such as data storage, network server, and so on. If the user has a strong CPU or GPU, they can be leveraged as well.
+
+Design considerations:
+---
+
+1. All workers will be pure Java (at least on initial releases). Hadoop is best relayed on Java, and Java is of course multi-platform, so even a TV can be a worker.
+2. *Jail* technology should be applied, like BSD'' jail. A jail is a mechanism that separates a process (or a user space etc.) from all other machine''s resources, hence exterior computations can be ran on a machine without interefering at all on the user''s work. Jail technologies are considered very secured. It is needed to explore this mechanism in relation to Java.
+3. Work should be provable. A worker should be able to prove that it worked, just like cryptocurrency mining. Hence, the type of work that is distributed should be provable only, like Searching, verifying other node''s work, some easily provable mathematical problems (root finding etc.) and so on.
+4. Strictly speaking, Hadoop is mainly a huge distributed filesystem (HDFS). So a node can earn HadoopCoins by doing nothing but connecting to the Coordinator''s Hadoop network and serve as a file server.
+5. Hadoop takes most care of spreading the work among clients using the famous Map/Reduce approach. In fact, Hadoop and Map/Reduce are almost synonyms.
+
+
 Some Hadoop Highlights from Wikipedia
 ---
 
@@ -70,24 +99,6 @@ As of 2013, Hadoop adoption is widespread. For example, more than half of the Fo
 
 Hadoop can also be used in compute farms and high-performance computing environments. Instead of setting up a dedicated Hadoop cluster, an existing compute farm can be used if the resource manager of the cluster is aware of the Hadoop jobs, and thus Hadoop jobs can be scheduled like other jobs in the cluster.
 
-Terminology
----
- 
-* A `Node` is any computational platform that may perform tasks such as computing, storing data, collecting or sending data from/to the internet, and so on.
-
-Fair Distribution
----
-
-Not all computational devices can perform many floating points operations per second, which makes only specific hardware suitable for legacy cryptocurrency mining. HadoopCoin is designed to use all various system resources and not only number crunching, such as data storage, network server, and so on. If the user has a strong CPU or GPU, they can be leveraged as well.
-
-Design considerations:
----
-
-1. All workers will be pure Java (at least on initial releases). Hadoop is best relayed on Java, and Java is of course multi-platform, so even a TV can be a worker.
-2. *Jail* technology should be applied, like BSD'' jail. A jail is a mechanism that separates a process (or a user space etc.) from all other machine''s resources, hence exterior computations can be ran on a machine without interefering at all on the user''s work. Jail technologies are considered very secured. It is needed to explore this mechanism in relation to Java.
-3. Work should be provable. A worker should be able to prove that it worked, just like cryptocurrency mining. Hence, the type of work that is distributed should be provable only, like Searching, verifying other node''s work, some easily provable mathematical problems (root finding etc.) and so on.
-4. Strictly speaking, Hadoop is mainly a huge distributed filesystem (HDFS). So a node can earn HadoopCoins by doing nothing but connecting to the Coordinator''s Hadoop network and serve as a file server.
-5. Hadoop takes most care of spreading the work among clients using the famous Map/Reduce approach. In fact, Hadoop and Map/Reduce are almost synonyms.
 
 The general system workflow is as follows:
-1. User installs a *Worker* 
+* User installs a *Worker* 
